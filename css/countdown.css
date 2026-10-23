@@ -1,0 +1,147 @@
+:root
+{
+    --clr-navbar: #1D1D1D;
+    --clr-title: #FFF8DF;
+    --clr-indigo: #4B3FCF;
+    --clr-mango: #FFCE6B;
+    --clr-teal: #152D35;
+    --clr-glass: rgba(21, 45, 53, 0.35);
+    --clr-glass-solid: rgba(21, 45, 53, 0.55);
+    --clr-line: rgba(255, 248, 223, 0.25);
+    --font-game: "Neuton", serif;
+    --ease-panel: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+@media screen and (min-width: 990px) {
+
+    /* <----------COUNTDOWN SECTION-------------> */
+
+    .countdown-overlay
+    {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(10, 24, 29, 0.75);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        z-index: 1000;
+
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: 
+            opacity 0.2s var(--ease-panel), 
+            visibility 0.2s;
+    }
+
+    .countdown-overlay.is-open
+    {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    #countdown-value
+    {
+        font-family: var(--font-game);
+        font-size: 10rem;
+        font-weight: 900;
+        color: var(--clr-mango);
+        text-shadow: 0 0 40px rgba(255, 206, 107, 0.5);
+    }
+
+    /* <----------GAMEOVER SECTION-------------> */
+
+    #gameover-content
+    {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        text-align: center;
+        width: 100%;
+    }
+
+    .gameover-overlay-small
+    {
+        inset: unset;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: min(300px, 90vw);
+        height: auto;
+        padding: 4rem 2rem;
+        border-radius: 20px;
+    }
+
+    .gameover-close
+    {
+        position: absolute;
+        top: 1.25rem;
+        right: 1.25rem;
+        font-size: 1.25rem;
+        line-height: 1;
+        transition: color 0.3s ease;
+        z-index: 1;
+    }
+
+    .gameover-close .fa-xmark:hover
+    {
+        color: var(--clr-mango);
+    }
+
+    #gameover-content h2
+    {
+        font-size: 3rem;
+        color: var(--clr-title);
+    }
+
+    .gameover-label
+    {
+        font-size: 1.1rem;
+        opacity: 0.7;
+    }
+
+    #gameover-score
+    {
+        font-size: 5rem;
+        font-weight: 900;
+        color: var(--clr-mango);
+        text-shadow: 0 0 40px rgba(255, 206, 107, 0.5);
+    }
+
+    #play-again-btn
+    {
+        margin-top: 1rem;
+        padding: 0.75rem 2rem;
+        font-size: 1.2rem;
+        font-family: var(--font-game);
+        font-weight: 400;
+        letter-spacing: 0.08rem;
+        color: var(--clr-teal);
+        background-color: var(--clr-mango);
+        border-radius: 50px;
+        cursor: pointer;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: 
+            color 0.3s ease,
+            background-color 0.3s ease,
+            transform 0.3s ease,
+            box-shadow 0.3s ease
+    }
+
+    #play-again-btn:hover
+    {
+        transform: translateY(-3px);
+        box-shadow: 0 0 30px rgba(255, 206, 107, 0.5);
+    }
+
+    #play-again-btn:active
+    {
+        background-color: #38BDF8;
+        color: var(--clr-mango);
+    }
+}

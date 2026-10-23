@@ -1,0 +1,92 @@
+:root
+{
+    --clr-navbar: #1D1D1D;
+    --clr-title: #FFF8DF;
+    --clr-indigo: #4B3FCF;
+    --clr-mango: #FFCE6B;
+    --clr-teal: #152D35;
+    --clr-glass: rgba(21, 45, 53, 0.35);
+    --clr-glass-solid: rgba(21, 45, 53, 0.55);
+    --clr-line: rgba(255, 248, 223, 0.25);
+    --font-game: "Neuton", serif;
+    --ease-panel: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+@media screen and (min-width: 990px) {
+    
+    #game-mechanics-left
+    {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: min(420px, 85vw);
+        display: flex;
+        align-items: flex-start;
+        padding: 6rem 2.5rem 2.5rem;
+        background-color: var(--clr-glass);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        border-right: 1px solid var(--clr-line);
+        box-shadow: 0 0 40px rgba(0, 0, 0, 0.25);
+        transform: translateX(-100%);
+        transition: transform 0.5s var(--ease-panel);
+        z-index: 900;
+        overflow-y: auto;
+    }
+
+    #game-mechanics-left.is-open
+    {
+        transform: translateX(0);
+    }
+
+    #mechanics-container
+    {
+        width: 100%;
+    }
+
+    .mechanics-title
+    {
+        margin-bottom: 1.25rem;
+        letter-spacing: 0.05em;
+        font-size: 3rem;
+    }
+
+    .mechanics-text
+    {
+        margin-bottom: 1rem;
+        line-height: 1.5;
+        font-size: 1.3rem;
+        max-width: 60ch;
+    }
+
+    .mechanics-text span
+    {
+        display: block;
+        opacity: 0.75;
+        font-size: 0.95rem;
+        margin-top: 0.25rem;
+    }
+
+    .mechanics-close
+    {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.75rem;
+        color: var(--clr-mango);
+        font-size: 1.25rem;
+        line-height: 1;
+        transition: color 0.2s ease;
+    }
+
+    .mechanics-close:hover
+    {
+        color: var(--clr-title);
+    }
+
+    .mechanics-close .fa-solid
+    {
+        color: inherit;
+    }
+
+}

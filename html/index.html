@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speudo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Neuton:ital,wght@0,200;0,300;0,400;0,700;0,800;1,400&display=swap">
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
+    <link rel="stylesheet" type="text/css" href="../css/warning.css">
+    <link rel="stylesheet" type="text/css" href="../css/mechanics.css">
+    <link rel="stylesheet" type="text/css" href="../css/nav.css">
+    <link rel="stylesheet" type="text/css" href="../css/hud.css">
+    <link rel="stylesheet" type="text/css" href="../css/countdown.css">
+    <link rel="stylesheet" type="text/css" href="../css/wordqueue.css">
+    <script defer type="module" src="../js/nav.js"></script>
+    <script defer type="module" src="../js/app.js"></script>
+</head>
+<body>
+    <div id="screen-warning">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <p>&nbsp;Speudo needs a wider screen to play — please resize your browser or switch to a larger device.&nbsp;</p>
+        <i class="fa-solid fa-triangle-exclamation"></i>
+    </div>
+    <video autoplay muted loop playsinline>
+        <source src="../video/meadow.mp4" type="video/mp4">
+    </video>
+    <header id="navigation-bar">
+        <div id="game-title">
+            <h1>Speudo</h1>
+        </div>
+
+        <div id="navigation">
+            <ul class="link-list">
+                <li class="list">
+                    <button type="button" id="difficulty-default" class="difficulty-play" data-difficulty="easy">
+                        <a href="#" class="link-deco-none">
+                            <span class="icon">
+                                <i class="fa-solid fa-gamepad"></i>
+                            </span>
+                            <span class="nav-text">Play</span>
+                        </a>
+                    </button>
+                </li>
+
+                <li class="list">
+                    <button type="button" id="difficulty-toggle" class="link-deco-none nav-button"
+                            aria-expanded="false" aria-controls="game-difficulty">
+                        <span class="icon">
+                            <i class="fa-solid fa-sliders"></i>
+                        </span>
+                        <span class="nav-text">Difficulty</span>
+                        <span class="down-arrow" aria-hidden="true">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </span>
+                    </button>
+                </li>
+
+                <li class="list">
+                    <button type="button" id="mechanics-toggle" class="link-deco-none nav-button"
+                            aria-expanded="false" aria-controls="game-mechanics-left">
+                        <span class="icon">
+                            <i class="fa-brands fa-readme"></i>
+                        </span>
+                        <span class="nav-text">Mechanics</span>
+                    </button>
+                </li>
+
+                <li class="list">
+                    <a href="#" id="nav-retry-btn" class="link-deco-none">
+                        <span class="icon">
+                            <i class="fa-solid fa-rotate"></i>
+                        </span>
+                        <span class="nav-text">Retry</span>
+                    </a>
+                </li>
+
+                <li class="list">
+                    <button type="button" id="audio-toggle" class="link-deco-none nav-button">
+                        <span class="icon">
+                            <i id="mute-icon" class="fa-solid fa-volume-xmark"></i>
+                        </span>
+                        <audio id="terraria-ost" loop muted>
+                            <source src="../audio/terraria.mp3" type="audio/mpeg">
+                        </audio>
+                    </button>
+                </li>
+            </ul>
+
+            <div class="toggle-btn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+
+            <section id="game-difficulty" class="game-body" role="radiogroup" aria-label="Choose difficulty">
+                <p class="difficulty-heading">Don't be gae choose Hard</p>
+                <div class="difficulty-container">
+                    <button type="button" id="difficulty-easy" class="difficulty-option is-selected"
+                            role="radio" aria-checked="true" tabindex="0"
+                            data-difficulty="easy" data-time="01:00">
+                        <span class="difficulty-text">Easy</span>
+                        <span class="difficulty-meta">4-5 Letters</span>
+                    </button>
+
+                    <button type="button" id="difficulty-medium" class="difficulty-option"
+                            role="radio" aria-checked="false" tabindex="-1"
+                            data-difficulty="medium" data-time="01:00">
+                        <span class="difficulty-text">Medium</span>
+                        <span class="difficulty-meta">8-10 Letters</span>
+                    </button>
+
+                    <button type="button" id="difficulty-hard" class="difficulty-option"
+                            role="radio" aria-checked="false" tabindex="-1"
+                            data-difficulty="hard" data-time="01:00">
+                        <span class="difficulty-text">Hard</span>
+                        <span class="difficulty-meta">13-15 Letters</span>
+                    </button>
+                </div>
+            </section>
+        </div>
+    </header>
+
+    <main>
+        <section id="game-mechanics-left" class="game-body" aria-label="How to play" aria-hidden="true">
+            <div id="mechanics-container">
+                <button type="button" class="mechanics-close" aria-label="Close mechanics panel">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <div id="mechanics-steps-container">
+                    <h3 class="mechanics-title">How To Play Speudo</h3>
+                    <p class="mechanics-text">1. Type the word shown before time runs out.<span> Each round gives you a limited window to type it correctly.</span></p>
+                    <p class="mechanics-text">2. Correct words build up your multiplier.<span> Every word you type correctly in a row increases your score multiplier, up to a maximum of 3x.</span></p>
+                    <p class="mechanics-text">3. Keep the streak alive.<span> A mistake resets your multiplier back to the start. So accuracy matters just as much as speed once your multiplier climbs.</span></p>
+                    <p class="mechanics-text">4. Maximize your score.<span> The longer your streak, the more each correct word is worth. Big scores come from staying accurate under pressure, not just typing fast.</span></p>
+                    <p class="mechanics-text">5. How scoring works.<span> Each word is worth 1 point per letter, multiplied by your difficulty (Easy x1, Medium x2, Hard x3) and your current streak multiplier (x2 at a 3-word streak, x3 at a 6-word streak). Longer words on higher difficulties with a strong streak are worth the most.</span></p>
+                </div>
+            </div>
+        </section>
+
+        <div id="countdown-overlay" class="countdown-overlay">
+            <span id="countdown-value">3</span>
+        </div>
+
+        <div id="gameover-overlay" class="countdown-overlay gameover-overlay-small">
+            <button type="button" class="gameover-close" aria-label="Close popup">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div id="gameover-content">
+                <h2>Time's Up!</h2>
+                <p class="gameover-label">Final Score</p>
+                <p id="gameover-score">0</p>
+                <button type="button" id="play-again-btn">Play Again</button>
+            </div>
+        </div>
+
+        <div id="game-area">
+            <section id="word-queue">
+                <div class="main-word-container">
+                    <p id="main-word" class="word-row active-word is-idle" data-role="main">LET'S PLAY!</p>
+                </div>
+                <div class="preview-word-container">
+                    <p id="last-word" class="word-row preview-word" data-role="third">PREVIEW WORD</p>
+                    <p id="next-word" class="word-row preview-word" data-role="next">NEXT WORD</p>
+                </div>
+                <div id="word-input">
+                    <input type="text" placeholder="Type here..." class="input-typed-word">
+                </div>
+            </section>
+
+            <section id="hud-right">
+                <div id="game-hud">
+                    <div id="hud-difficulty" class="hud-container-pill">
+                        <span id="hud-difficulty-value">None</span>
+                    </div>
+                    <div id="hud-timer">
+                        <span id="hud-timer-value">1:00</span>
+                    </div>
+                    <div id="hud-score" class="hud-container-box">
+                        <span class="hud-label hud-label-score">Score</span>
+                        <span id="hud-score-value">0</span>
+                    </div>
+                    <div class="hud-bottom-row">
+                        <div id="hud-streak" class="hud-box">
+                            <span class="hud-label">Streak</span>
+                            <span id="hud-streak-value">0</span>
+                        </div>
+                        <div id="hud-multiplier" class="hud-box">
+                            <span class="hud-label">Boost</span>
+                            <span id="hud-multiplier-value">0</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,49 @@
+:root
+{
+    --clr-navbar: #1D1D1D;
+    --clr-title: #FFF8DF;
+    --clr-indigo: #4B3FCF;
+    --clr-mango: #FFCE6B;
+    --clr-teal: #152D35;
+    --clr-glass: rgba(21, 45, 53, 0.35);
+    --clr-glass-solid: rgba(21, 45, 53, 0.55);
+    --clr-line: rgba(255, 248, 223, 0.25);
+    --font-game: "Neuton", serif;
+    --ease-panel: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+#screen-warning
+{
+    display: none;
+}
+
+@media screen and (max-width: 989px) {
+
+    #screen-warning
+    {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        position: fixed;
+        inset: 0;
+        padding: 2rem;
+        font-family: var(--font-game);
+        font-size: 1.3rem;
+        color: var(--clr-title);
+        background-color: var(--clr-teal);
+        z-index: 9999;
+    }
+
+    .fa-triangle-exclamation
+    {
+        color: red;
+        font-size: 1.8rem;
+    }
+
+    header,
+    main
+    {
+        display: none;
+    }
+}
